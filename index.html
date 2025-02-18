@@ -5,15 +5,18 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click="buttonClick">Click Me</button>
+      <button v-on:click="buttonClick('Vue is Exciting','Hello World')">
+        Click Me
+      </button>
     </div>
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
     createApp({
       setup() {
-        function buttonClick() {
-          alert("Button Clicked");
+        function buttonClick(newMessage, newMessage2) {
+          alert(newMessage);
+          alert(newMessage2);
         }
         return { buttonClick };
       },
