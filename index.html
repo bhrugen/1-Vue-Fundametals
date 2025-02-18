@@ -4,7 +4,14 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app">Hello World</div>
+    <div id="app">
+      <div v-bind:style="{backgroundColor: 'aqua', fontSize: '40px'}">
+        Hello World
+      </div>
+      <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">
+        Hello World
+      </div>
+    </div>
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
