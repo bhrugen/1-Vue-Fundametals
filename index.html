@@ -4,91 +4,14 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app">
-      <div :style="{backgroundColor: 'aqua', fontSize: fontSizeTemp+ 'px'}">
-        Hello World
-      </div>
-      <div :style="{'background-color': 'aqua', 'font-size': '40px'}">
-        Hello World
-      </div>
-      <br /><br />
-      <span
-        class="padding-medium"
-        :class="{h1:isMaintitle(), 'bg-green':HasGreenBackground()}"
-      >
-        Random Text
-      </span>
-      <br /><br />
-      <span
-        class="padding-medium"
-        :class="[isMaintitle()? MainTitle: '',borderClass]"
-      >
-        Random Text
-      </span>
-      <br /><br />
-      <span :style="someStyle.style1">Random Style Binding</span>
-    </div>
+    <div id="app">Hello World</div>
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
-    const fontSizeTemp = 60;
     createApp({
       setup() {
-        const MainTitle = {
-          h1: true,
-          "bg-grey": true,
-        };
-
-        const borderClass = {
-          border: true,
-        };
-        const someStyle = {
-          style1: {
-            fontSize: "40px",
-            backgroundColor: "lightgreen",
-            margin: "20px",
-            border: "1px solid black",
-          },
-        };
-
-        function isMaintitle() {
-          return true;
-        }
-        function HasGreenBackground() {
-          return true;
-        }
-
-        return {
-          fontSizeTemp,
-          isMaintitle,
-          HasGreenBackground,
-          MainTitle,
-          someStyle,
-          borderClass,
-        };
+        return {};
       },
     }).mount("#app");
   </script>
-  <style>
-    .h1 {
-      font-size: 30px;
-      color: green;
-    }
-    .h2 {
-      font-size: 40px;
-      color: chocolate;
-    }
-    .bg-grey {
-      background-color: grey;
-    }
-    .bg-green {
-      background-color: lightgreen;
-    }
-    .padding-medium {
-      padding: 20px;
-    }
-    .border {
-      border: 10px solid red;
-    }
-  </style>
 </html>
