@@ -6,20 +6,13 @@
   <body>
     <div id="app">
       <h1>{{message}}</h1>
-      <p>Lucky Number : {{luckyNumber}}</p>
+      Lucky Numbers:
+      <span v-for="(luckyNumber,index) in luckyNumbers">
+        <br />{{luckyNumber}}
+      </span>
 
       <p>{{employee.name}} is {{employee.age}} years old.</p>
       <p>His salary is {{employee.salary}}</p>
-      <p v-show="employee.hasCorporateCard">
-        Spending Limit for Card(show) : {{employee.spendingLimit}}
-      </p>
-      <p v-if="employee.hasCorporateCard">
-        Spending Limit for Card (if) : {{employee.spendingLimit}}
-      </p>
-      <p v-else-if="employee.salary>25000 && employee.yearsWithCompany>1">
-        Employee is eligible for a corporate card
-      </p>
-      <p v-else>Employee is not eligible for a corporate card</p>
     </div>
   </body>
   <script>
@@ -36,11 +29,17 @@
           hasCorporateCard: false,
           spendingLimit: 10000,
           yearsWithCompany: 0,
+          projects: [
+            { project: "Green A", timeline: "2 years" },
+            { project: "Blue H", timeline: "9 months" },
+            { project: "Pink G", timeline: "3 years" },
+          ], // array of objects
         });
 
         return {
           message,
           employee,
+          luckyNumbers,
         };
       },
     }).mount("#app");
