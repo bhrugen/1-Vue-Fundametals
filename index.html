@@ -5,20 +5,24 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click="buttonClick('Vue is Exciting','Hello World')">
+      <button v-on:click="buttonClick('Vue is Exciting','Hello World',$event)">
         Click Me
       </button>
+      <p>x: {{ x }} y: {{y}}</p>
     </div>
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
     createApp({
       setup() {
-        function buttonClick(newMessage, newMessage2) {
-          alert(newMessage);
-          alert(newMessage2);
+        let x = ref(0);
+        let y = ref(0);
+
+        function buttonClick(newMessage, newMessage2, event) {
+          x.value = event.x;
+          y.value = event.y;
         }
-        return { buttonClick };
+        return { buttonClick, x, y };
       },
     }).mount("#app");
   </script>
