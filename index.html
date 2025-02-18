@@ -4,13 +4,18 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app">Hello World</div>
+    <div id="app">
+      <button v-on:click="buttonClick">Click Me</button>
+    </div>
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
     createApp({
       setup() {
-        return {};
+        function buttonClick() {
+          alert("Button Clicked");
+        }
+        return { buttonClick };
       },
     }).mount("#app");
   </script>
