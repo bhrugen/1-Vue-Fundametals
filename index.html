@@ -5,7 +5,7 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{getMessage()}}</h1>
+      <span v-html="getMessage()"></span>
       <p>Lucky Number : {{luckyNumber}}</p>
       <p>
         Lucky Number is an {{luckyNumber%2==0?"even number" : "odd number"}}
@@ -37,7 +37,7 @@
         }
 
         function getMessage() {
-          return message.toUpperCase();
+          return `<h1><u>${message}</u></h1>`;
         }
 
         return {
