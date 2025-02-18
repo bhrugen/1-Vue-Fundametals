@@ -5,7 +5,9 @@
   </head>
   <body>
     <div id="app">
-      <div v-bind:style="{backgroundColor: 'aqua', fontSize: '40px'}">
+      <div
+        v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp+ 'px'}"
+      >
         Hello World
       </div>
       <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">
@@ -15,10 +17,12 @@
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
-
+    const fontSizeTemp = 60;
     createApp({
       setup() {
-        return {};
+        return {
+          fontSizeTemp,
+        };
       },
     }).mount("#app");
   </script>
