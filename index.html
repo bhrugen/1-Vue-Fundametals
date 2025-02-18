@@ -12,6 +12,7 @@
       </p>
       <p>{{updateLuckyNumber()}}</p>
       <p>{{employee.name}} is {{employee.age}} years old.</p>
+      <p>His salary is {{employee.salary}}</p>
     </div>
   </body>
   <script>
@@ -22,15 +23,16 @@
         const message = "Hello Vue!";
         let luckyNumber = ref(6);
 
-        const employee = {
+        const employee = ref({
           name: "John",
           age: 30,
           salary: 50000,
-        };
+        });
 
         function updateLuckyNumber() {
           setTimeout(() => {
             luckyNumber.value = 77;
+            employee.value.salary = 60000;
           }, 2000);
         }
 
