@@ -5,30 +5,28 @@
   </head>
   <body>
     <div id="app">
-      <div
-        v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp+ 'px'}"
-      >
+      <div :style="{backgroundColor: 'aqua', fontSize: fontSizeTemp+ 'px'}">
         Hello World
       </div>
-      <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">
+      <div :style="{'background-color': 'aqua', 'font-size': '40px'}">
         Hello World
       </div>
       <br /><br />
       <span
         class="padding-medium"
-        v-bind:class="{h1:isMaintitle(), 'bg-green':HasGreenBackground()}"
+        :class="{h1:isMaintitle(), 'bg-green':HasGreenBackground()}"
       >
         Random Text
       </span>
       <br /><br />
       <span
         class="padding-medium"
-        v-bind:class="[isMaintitle()? MainTitle: '',borderClass]"
+        :class="[isMaintitle()? MainTitle: '',borderClass]"
       >
         Random Text
       </span>
       <br /><br />
-      <span v-bind:style="someStyle.style1">Random Style Binding</span>
+      <span :style="someStyle.style1">Random Style Binding</span>
     </div>
   </body>
   <script>
