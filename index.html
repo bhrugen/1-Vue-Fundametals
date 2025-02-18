@@ -4,61 +4,14 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app">
-      <h1>{{message}}</h1>
-      Lucky Numbers:
-      <span v-for="(luckyNumber,index) in luckyNumbers">
-        <br /> <span v-once>{{luckyNumber}}</span>
-      </span>
-      <hr />
-
-      <p>Projects in Pipeline</p>
-      <ul>
-        <li v-for="(project,index) in employee.projects">
-          <span
-            >{{index+1}} - "{{project.project}}" timeline is -
-            {{project.timeline}}
-          </span>
-        </li>
-      </ul>
-<hr/>
-<ul>
-  <li v-for="(value,key) in employee">
-    <span>{{key}}: {{value}}</span>
-  </li>
-
-  </li>
-</ul>
-      <p>{{employee.name}} is {{employee.age}} years old.</p>
-      <p>His salary is {{employee.salary}}</p>
-    </div>
+    <div id="app">Hello World</div>
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
 
     createApp({
       setup() {
-        const message = "Hello Vue!";
-        let luckyNumbers = [3, 5, 7, 11, 15];
-        const employee = reactive({
-          name: "John",
-          age: 30,
-          salary: 50000,
-          hasCorporateCard: false,
-          spendingLimit: 10000,
-          yearsWithCompany: 0,
-          projects: [
-            { project: "Green A", timeline: "2 years" },
-            { project: "Blue H", timeline: "9 months" },
-            { project: "Pink G", timeline: "3 years" },
-          ], // array of objects
-        });
-
-        return {
-          message,
-          employee,
-          luckyNumbers,
-        };
+        return {};
       },
     }).mount("#app");
   </script>
