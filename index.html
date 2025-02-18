@@ -10,7 +10,7 @@
       <p>
         Lucky Number is an {{luckyNumber%2==0?"even number" : "odd number"}}
       </p>
-      <p>Random Number from 1-10: {{Math.floor(Math.random()*10)+1}}</p>
+      <p>Random Number from 1-10: {{getRandomLuckyNumber()}}</p>
       <p>{{employee.name}} is {{employee.age}} years old.</p>
     </div>
   </body>
@@ -21,17 +21,22 @@
       setup() {
         const message = "Hello Vue!";
         const luckyNumber = 6;
-        const luckyNumbers = [3, 7, 9, 11];
+
         const employee = {
           name: "John",
           age: 30,
           salary: 50000,
         };
+
+        function getRandomLuckyNumber() {
+          return Math.floor(Math.random() * 10) + 1;
+        }
+
         return {
           message,
           luckyNumber,
-          luckyNumbers,
           employee,
+          getRandomLuckyNumber,
         };
       },
     }).mount("#app");
