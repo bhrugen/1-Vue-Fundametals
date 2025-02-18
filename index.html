@@ -5,33 +5,14 @@
   </head>
   <body>
     <div id="app">
-      <div>
-        <input type="text" v-on:keyup.enter.ctrl="pressEnter" />
-        <button
-          v-on:click.stop="buttonClick('Vue is Exciting - Button','Hello World',$event)"
-        >
-          Click Me
-        </button>
-        <p>x: {{ x }} y: {{y}}</p>
-      </div>
+      <div></div>
     </div>
   </body>
   <script>
     const { createApp, ref, reactive } = Vue;
     createApp({
       setup() {
-        let x = ref(0);
-        let y = ref(0);
-
-        function pressEnter() {
-          alert("Enter key pressed");
-        }
-        function buttonClick(newMessage, newMessage2, event) {
-          alert(newMessage);
-          x.value = event.x;
-          y.value = event.y;
-        }
-        return { buttonClick, x, y, pressEnter };
+        return {};
       },
     }).mount("#app");
   </script>
