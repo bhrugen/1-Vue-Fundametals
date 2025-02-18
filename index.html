@@ -21,9 +21,14 @@
         Random Text
       </span>
       <br /><br />
-      <span class="padding-medium" v-bind:class="isMaintitle()? MainTitle: ''">
+      <span
+        class="padding-medium"
+        v-bind:class="[isMaintitle()? MainTitle: '',borderClass]"
+      >
         Random Text
       </span>
+      <br /><br />
+      <span v-bind:style="someStyle.style1">Random Style Binding</span>
     </div>
   </body>
   <script>
@@ -34,6 +39,18 @@
         const MainTitle = {
           h1: true,
           "bg-grey": true,
+        };
+
+        const borderClass = {
+          border: true,
+        };
+        const someStyle = {
+          style1: {
+            fontSize: "40px",
+            backgroundColor: "lightgreen",
+            margin: "20px",
+            border: "1px solid black",
+          },
         };
 
         function isMaintitle() {
@@ -48,6 +65,8 @@
           isMaintitle,
           HasGreenBackground,
           MainTitle,
+          someStyle,
+          borderClass,
         };
       },
     }).mount("#app");
@@ -69,6 +88,9 @@
     }
     .padding-medium {
       padding: 20px;
+    }
+    .border {
+      border: 10px solid red;
     }
   </style>
 </html>
