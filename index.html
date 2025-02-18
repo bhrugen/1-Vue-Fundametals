@@ -6,21 +6,28 @@
   <body>
     <div id="app">
       <div>Learn Vue</div>
-      Name:
-      <input type="text" v-model.trim="name" />
-      <br /><br />
-      Age:
-      <input type="number" v-model.lazy="age" />
-      <p>{{name}} is {{age}} years old.</p>
+      <p>{{counter}}</p>
+      <p>{{getFullName}}</p>
+      <button v-on:click="counter++">Increment</button>
+      <button v-on:click="counter--">Decrement</button>
     </div>
   </body>
   <script>
-    const { createApp, ref, reactive } = Vue;
+    const { createApp, ref, reactive, computed } = Vue;
     let name = ref("Ben");
     let age = ref(20);
     createApp({
       setup() {
-        return { name, age };
+        let counter = ref(0);
+        let firstName = ref("Ben");
+        let lastName = ref("Patel");
+
+        const getFullName = computed(() => {
+          console.log("getFullName was called");
+          return firstName.value + " " + lastName.value;
+        });
+
+        return { counter, getFullName };
       },
     }).mount("#app");
   </script>
