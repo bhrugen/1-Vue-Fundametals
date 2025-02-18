@@ -5,7 +5,7 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{message}}</h1>
+      <h1>{{getMessage()}}</h1>
       <p>Lucky Number : {{luckyNumber}}</p>
       <p>
         Lucky Number is an {{luckyNumber%2==0?"even number" : "odd number"}}
@@ -32,8 +32,12 @@
           return Math.floor(Math.random() * 10) + 1;
         }
 
+        function getMessage() {
+          return message.toUpperCase();
+        }
+
         return {
-          message,
+          getMessage,
           luckyNumber,
           employee,
           getRandomLuckyNumber,
