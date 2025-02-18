@@ -8,7 +8,7 @@
       <h1>{{message}}</h1>
       Lucky Numbers:
       <span v-for="(luckyNumber,index) in luckyNumbers">
-        <br />{{luckyNumber}}
+        <br /> <span v-once>{{luckyNumber}}</span>
       </span>
       <hr />
 
