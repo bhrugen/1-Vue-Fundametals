@@ -10,6 +10,17 @@
       <span v-for="(luckyNumber,index) in luckyNumbers">
         <br />{{luckyNumber}}
       </span>
+      <hr />
+
+      <p>Projects in Pipeline</p>
+      <ul>
+        <li v-for="(project,index) in employee.projects">
+          <span
+            >{{index+1}} - "{{project.project}}" timeline is -
+            {{project.timeline}}
+          </span>
+        </li>
+      </ul>
 
       <p>{{employee.name}} is {{employee.age}} years old.</p>
       <p>His salary is {{employee.salary}}</p>
