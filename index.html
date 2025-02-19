@@ -6,10 +6,10 @@
   <body>
     <div id="app">
       <div>Learn Vue</div>
-      <p>{{counter}}</p>
+      <p>{{obj.count}}</p>
       <p>{{getFullName}}</p>
-      <button v-on:click="counter++">Increment</button>
-      <button v-on:click="counter--">Decrement</button>
+      <button v-on:click="obj.count++">Increment</button>
+      <button v-on:click="obj.count--">Decrement</button>
       <br />
       <br />
       First Name:
@@ -23,11 +23,12 @@
     createApp({
       setup() {
         let counter = ref(0);
+        const obj = reactive({ count: 0 });
         let firstName = ref("Ben");
         let lastName = ref("Patel");
 
         watch(
-          () => counter.value,
+          () => obj.count,
           (newValue, oldValue) => {
             console.log(
               "Counter value changed from ",
@@ -49,7 +50,7 @@
           return firstName.value + " " + lastName.value;
         });
 
-        return { counter, getFullName, firstName };
+        return { counter, getFullName, firstName, obj };
       },
     }).mount("#app");
   </script>
