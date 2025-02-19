@@ -11,40 +11,20 @@
   </head>
   <body>
     <div id="app" class="container">
-      <div class="bg-info p-5 rounded m-5">
-        <div class="h2 text-center">Learn Vue - MovieOPedia</div>
-        <hr />
-        <div class="input-group mb-3">
-          <span class="input-group-text">Title</span>
-          <input type="text" class="form-control" v-model="newMovie.title" />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">Year</span>
-          <input type="text" class="form-control" v-model="newMovie.year" />
-        </div>
-        <div class="text-center pb-3">
-          <button class="btn btn-secondary m-2 w-25" @click="addMovie">
-            Add Movie
-          </button>
-          <button class="btn btn-danger m-2 w-25" @click="removeMovie">
-            Remove Movie
-          </button>
-        </div>
-        <div class="border p-3 w-100 mx-auto">
-          <div class="text-center">
-            <h4 class="text-center">Movie List</h4>
-            <span class="text-danger" v-if="showMessage"
-              >You can only add 5 movies</span
-            >
-            <hr />
+      <form>
+        <div class="bg-info p-5 rounded m-5">
+          <div class="h2 text-center">Learn Vue - Forms</div>
+          <hr />
+          <div class="input-group mb-3">
+            <span class="input-group-text">Title</span>
+            <input type="text" class="form-control" />
           </div>
-          <ul class="list-group">
-            <li v-for="movie in getAllMovieText" class="list-group-item">
-              {{movie}}
-            </li>
-          </ul>
+
+          <div class="text-center pb-3">
+            <button class="btn btn-secondary m-2 w-50">Submit</button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </body>
   <script>
@@ -52,49 +32,15 @@
 
     createApp({
       setup() {
-        let movies = reactive([
-          { title: "Movie 1", year: 2000 },
-          { title: "Movie 2", year: 2001 },
-          { title: "Movie 3", year: 2020 },
-        ]);
-
-        let newMovie = reactive({ title: "", year: "" });
-        let showMessage = ref(false);
-        function addMovie() {
-          if (movies.length < 5) {
-            movies.push({ title: newMovie.title, year: newMovie.year });
-            newMovie.title = "";
-            newMovie.year = "";
-          }
-        }
-
-        const getAllMovieText = computed(() => {
-          return movies.map((movie) => {
-            return `${movie.title} was released in ${movie.year}`;
-          });
+        const formObj = reactive({
+          email: "",
+          name: "",
+          phone: "",
+          subscribe: false,
+          gender: "",
         });
 
-        watch(movies, async () => {
-          if (movies.length >= 3) {
-            setTimeout(() => {
-              showMessage.value = true;
-            }, 3000);
-          } else {
-            showMessage.value = false;
-          }
-        });
-
-        function removeMovie() {
-          movies.pop();
-        }
-        return {
-          newMovie,
-          movies,
-          addMovie,
-          removeMovie,
-          getAllMovieText,
-          showMessage,
-        };
+        return { formObj };
       },
     }).mount("#app");
   </script>
