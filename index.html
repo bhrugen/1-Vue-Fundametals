@@ -17,15 +17,27 @@
           <hr />
           <div class="input-group mb-3">
             <span class="input-group-text">Email</span>
-            <input type="text" class="form-control" v-model="formObj.email" />
+            <input
+              type="text"
+              class="form-control"
+              v-model.trim="formObj.email"
+            />
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Name</span>
-            <input type="text" class="form-control" v-model="formObj.name" />
+            <input
+              type="text"
+              class="form-control"
+              v-model.trim="formObj.name"
+            />
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Phone</span>
-            <input type="text" class="form-control" v-model="formObj.phone" />
+            <input
+              type="number"
+              class="form-control"
+              v-model.number="formObj.phone"
+            />
           </div>
           <div class="input-group mb-3">
             <input
