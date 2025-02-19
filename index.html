@@ -10,6 +10,10 @@
       <p>{{getFullName}}</p>
       <button v-on:click="counter++">Increment</button>
       <button v-on:click="counter--">Decrement</button>
+      <br />
+      <br />
+      First Name:
+      <input type="text" v-model="firstName" />
     </div>
   </body>
   <script>
@@ -22,12 +26,15 @@
         let firstName = ref("Ben");
         let lastName = ref("Patel");
 
-        const getFullName = computed(() => {
-          console.log("getFullName was called");
+        const getFullName = computed((previous) => {
+          console.log("previous value", previous);
+          if (previous == "Ben 1 Patel") {
+            console.log("Ben Patel -> Speical case");
+          }
           return firstName.value + " " + lastName.value;
         });
 
-        return { counter, getFullName };
+        return { counter, getFullName, firstName };
       },
     }).mount("#app");
   </script>
